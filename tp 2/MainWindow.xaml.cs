@@ -31,5 +31,10 @@ namespace tp_2
                 }
             }
         }
+
+        private void listbox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            lb1.Content = listbox.SelectedItem.ToString();
+        }
     }
 }
