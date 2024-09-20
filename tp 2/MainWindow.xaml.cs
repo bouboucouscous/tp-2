@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace tp_2
@@ -9,6 +10,10 @@ namespace tp_2
     /// </summary>
     public partial class MainWindow : Window
     {
+        Photo 
+            ph;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,6 +40,7 @@ namespace tp_2
         private void listbox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             lb1.Content = listbox.SelectedItem.ToString();
+            ph = new Photo(listbox.SelectedItem.ToString());
         }
     }
 }
