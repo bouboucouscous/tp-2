@@ -92,7 +92,20 @@
                     <StackPanel>
                         <Label Content="Source" Style="{StaticResource LabelHeader}"/>
                         <Label Name="lb1" Content="" Style="{StaticResource LabelPhoto}"/>
-
+                        <Label Content="Date de la prise de vue" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb2" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Titre" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb3" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Appareil photo" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb4" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Application" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb5" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Temps d'exposition" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb6" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Ouverture" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb7" Content="" Style="{StaticResource LabelPhoto}"/>
+                        <Label Content="Distance focale" Style="{StaticResource LabelHeader}"/>
+                        <Label Name="lb8" Content="" Style="{StaticResource LabelPhoto}"/>
                     </StackPanel>
                 </ScrollViewer>
             </GroupBox>

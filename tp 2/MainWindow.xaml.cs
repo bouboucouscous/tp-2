@@ -41,6 +41,14 @@ namespace tp_2
         {
             lb1.Content = listbox.SelectedItem.ToString();
             ph = new Photo(listbox.SelectedItem.ToString());
+
+            lb2.Content = ph.Metadata.DateTaken;
+            lb3.Content = ph.Metadata.Titre;
+            lb4.Content = ph.Metadata.Camera;
+            lb5.Content = ph.Metadata.Application;
+            lb6.Content = ph.Metadata.IsoSpeed;
+            lb7.Content = ph.Metadata.IsoOpenValue;
+            lb8.Content = ph.Metadata.IsoFocalDist;
         }
     }
 }
