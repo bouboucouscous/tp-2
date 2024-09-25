@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="950">
     <Window.Resources>
+        <ToolTip x:Key="PreviewScreen" x:Shared="True" Background="Transparent" Placement="Right" Name="previewToolTip">
+            <Border BorderBrush="RoyalBlue" BorderThickness="2" CornerRadius="2">
+                <Image Source="{Binding Mode=OneWay}" Opacity="0.5" />
+            </Border>
+        </ToolTip>
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="MaxHeight" Value="150" />
             <Setter Property="Margin" Value="5" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -18,15 +22,20 @@
                             <Image Source="{Binding Mode=OneWay}" Opacity="1" Cursor="Hand" x:Name="image"/>
                         </Border>-->
                         <Border Padding="4" Background="White" BorderBrush="#22000000" BorderThickness="1">
-                            <StackPanel Orientation="Vertical" Width="200" Height="200">
+                            <StackPanel Orientation="Vertical">
                                 <Border SnapsToDevicePixels="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{TemplateBinding Background}">
-                                    <Image Width="150" Height="150" Source="{Binding Mode=OneWay}" Opacity="1" Cursor="Hand" x:Name="image"/>
+                                    <Image  Source="{Binding Mode=OneWay}" Opacity="1" Cursor="Hand" x:Name="image"/>
                                 </Border>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="#445B6249" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.Setters>
+                                    <Setter Property="ToolTip" Value="{StaticResource PreviewScreen}"/>
+                                </Trigger.Setters>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -38,7 +47,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBox}" >
-                        <WrapPanel Margin="5" IsItemsHost="True" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+                        <WrapPanel Margin="5" IsItemsHost="True" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch" ItemHeight="{Binding ElementName=ZoomSlider, Path='Value'}" ItemWidth="{Binding ElementName=ZoomSlider, Path='Value'}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -84,6 +93,12 @@
                     <ListBox Name="listbox" Height="auto" Width="auto"  Style="{StaticResource PhotoListBoxStyle}" Margin="5" IsSynchronizedWithCurrentItem="True" SelectionMode="Extended" ItemsSource="{Binding}" SelectionChanged="listbox_SelectionChanged"/>
                 </ScrollViewer>
             </GroupBox>
+        </DockPanel>
+
+        <DockPanel Name="dockPanel4" Grid.Row="0" Grid.Column="1">
+            <Button Content="Diaporama" DockPanel.Dock="Right" Width="80" Click="Button_Click_1"/>
+            <Label Content="Zoom:" DockPanel.Dock="Left"/>
+            <Slider Name="ZoomSlider" Minimum="80" Maximum="320" Value="160" TickFrequency="80" TickPlacement="BottomRight" SmallChange="5" LargeChange="20"/>
         </DockPanel>
 
         <DockPanel Name="dockPanel3" Grid.Row="1" Grid.Column="1">

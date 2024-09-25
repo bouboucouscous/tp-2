@@ -50,5 +50,15 @@ namespace tp_2
             lb7.Content = ph.Metadata.IsoOpenValue;
             lb8.Content = ph.Metadata.IsoFocalDist;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Diaporama diaporama = new Diaporama();
+            foreach (var item in listbox.Items)
+            {
+                diaporama.sDiapo.Add(item.ToString());
+            }
+            diaporama.ShowDialog();
+        }
     }
 }
